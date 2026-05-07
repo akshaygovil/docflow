@@ -1,26 +1,108 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+    --background: #f8fafc;
+    --foreground: #0f172a;
+    --ui-blue: #1d4ed8;
+    --ui-green: #16a34a;
+    --ui-slate-900: #0f172a;
+    --ui-slate-700: #334155;
+    --ui-slate-500: #64748b;
+    --ui-slate-200: #e2e8f0;
+    --ui-slate-100: #f1f5f9;
+    --ui-white: #ffffff;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+    --color-background: var(--background);
+    --color-foreground: var(--foreground);
+    --font-sans: var(--font-sans);
+    --font-mono: var(--font-geist-mono);
 }
 
 @media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+    :root {
+        --background: #f8fafc;
+        --foreground: #0f172a;
+    }
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+    background: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+}
+
+@layer components {
+    .ui-page {
+        @apply min-h-screen bg-slate-50 text-slate-900;
+    }
+
+    .ui-shell {
+        @apply mx-auto w-full max-w-4xl px-4 sm:px-6;
+    }
+
+    .ui-shell-wide {
+        @apply mx-auto w-full max-w-5xl px-4 sm:px-6;
+    }
+
+    .ui-card {
+        @apply rounded-2xl bg-white shadow-sm ring-1 ring-slate-200/70 transition-all duration-200;
+    }
+
+    .ui-card-soft {
+        @apply rounded-2xl bg-white shadow-sm ring-1 ring-slate-200/50 transition-all duration-200;
+    }
+
+    .ui-title {
+        @apply text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl;
+    }
+
+    .ui-h2 {
+        @apply text-xl font-semibold tracking-tight text-slate-900;
+    }
+
+    .ui-h3 {
+        @apply text-base font-semibold tracking-tight text-slate-900;
+    }
+
+    .ui-body {
+        @apply text-sm leading-relaxed text-slate-500;
+    }
+
+    .ui-meta {
+        @apply text-xs text-slate-500;
+    }
+
+    .ui-chip {
+        @apply rounded-full bg-slate-100 px-2.5 py-1 text-xs font-medium text-slate-700;
+    }
+
+    .ui-btn-primary {
+        @apply rounded-lg bg-blue-700 px-5 py-3 text-sm font-semibold text-white shadow-sm transition-all duration-200 hover:bg-blue-800 active:scale-[0.995] disabled:cursor-not-allowed disabled:bg-slate-300 disabled:shadow-none;
+    }
+
+    .ui-btn-secondary {
+        @apply rounded-lg border border-slate-300 bg-white px-4 py-2 text-sm font-medium text-slate-700 transition-all duration-200 hover:bg-slate-50;
+    }
+
+    .ui-btn-sm {
+        @apply px-3 py-1.5 text-xs;
+    }
+
+    .ui-link {
+        @apply font-medium text-blue-700 underline-offset-2 hover:underline;
+    }
+
+    .ui-success {
+        @apply rounded-xl border border-green-200 bg-green-50 text-green-900;
+    }
+
+    .ui-modal-backdrop {
+        @apply fixed inset-0 z-50 flex items-center justify-center bg-slate-900/35 p-4 backdrop-blur-sm;
+    }
+
+    .ui-modal {
+        @apply w-full max-w-md rounded-xl border border-slate-200 bg-white p-6 shadow-xl;
+    }
 }
